@@ -1,0 +1,44 @@
+body {
+	background:url('/static/product/images/bg.jpg') no-repeat;
+	background-position: center;
+	background-size: cover;
+	font-family: 'Oswald', 'Futura', sans-serif;
+}
+#nav1
+{  
+    opacity: 0.8; 
+    filter:(opacity=50);       
+}
+#wrapper {
+	margin-top: 5% !important;
+}
+#content {
+	background: beige;
+	opacity: 0.8;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+.tdStyle
+{
+background-image:url('{{ STATIC_URL }}images/sample.JPG');
+background-repeat:no-repeat;
+background-size:100%;
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
