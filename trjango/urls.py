@@ -18,7 +18,7 @@ from django.urls import path
 from products.views import product_create_view,signup_view
 
 urlpatterns = [
-    path('',product_create_view),
+    path('',product_create_view, name='index'),
     path('signup/',signup_view),
     path('admin/', admin.site.urls),
 ]
