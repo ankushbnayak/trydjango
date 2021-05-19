@@ -1,0 +1,33 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+     <head>
+        <link rel="stylesheet" href="{% static  'product/styles.css' %}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        {% include 'product/navbar.html' %}
+        <div class="container-fluid" id="wrapper">
+            <div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					<h2 style="font-family: verdana; font-size:150% ; margin-bottom: 30px;">Login page</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form | crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Login</button>
+                </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Need An Account? <a class="ml-2" href="{% url 'signup' %}">Sign Up</a>
+                </small>
+            </div>
+        </div>
+    </body>
+</html>
