@@ -57,7 +57,7 @@ ROOT_URLCONF = 'trjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/shash/Desktop/ankush/trydjango/templates'],
+        'DIRS': ['C:\\Users\\nayaka\\trydjango\\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
