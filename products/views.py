@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Product,Signup
 from .forms import ProductForm,SignupForm
+from django.contrib.auth import login,authenticate
 # Create your views here.
 def product_create_view(request):
     form =ProductForm(request.GET)
@@ -19,7 +20,7 @@ def signup_view(request):
     if request.method=='POST':
         form=SignupForm(request.POST)
         if form.is_valid():
-         Signup.objects.create(**form.cleaned_data)
+         form.save()
          return redirect('index')
     context={
         'form':form
