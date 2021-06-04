@@ -4,6 +4,7 @@ from .forms import ProductForm,SignupForm
 from subprocess import run,PIPE
 import sys
 from django.contrib.auth import login,authenticate
+import joblib
 # Create your views here.
 def product_create_view(request):
     print("A")
@@ -34,4 +35,17 @@ def signup_view(request):
         'form':form
     }
     return render(request,'product/signup.html',context)
-    
+def result(request):
+    cls = joblib.load('finalmodel.sav')
+    lis=[]
+    lis.append(request.POST.get('married', 0))
+    lis.append(request.POST.get('graduate', 0))
+    lis.append(request.POST.get('dependants', 0))
+    lis.append(request.POST.get('self_employed', 0))
+    lis.append(request.POST.get('applicant_income', 0))
+    lis.append(request.POST.get('coapplicant_income', 0))
+    lis.append(request.POST.get('semi_urban', 0))
+    lis.append(request.POST.get('urban', 0))
+    lis.append(request.POST.get('Loan_Amount_Term', 0))
+    ans=cls.predict([lis])
+    return render(request,'product/result.html',{'ans':ans})

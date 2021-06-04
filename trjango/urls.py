@@ -17,7 +17,7 @@ import django
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path,include
-from products.views import product_create_view,signup_view
+from products.views import product_create_view,signup_view,result
 
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup/',signup_view ,name='signup'),
     path('admin/', admin.site.urls),
     path('',include("django.contrib.auth.urls")),
+    path('result/',result,name="result"),
     
     
 
