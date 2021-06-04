@@ -2,12 +2,15 @@ from django.db import models
 
 # Create your models here.
 class Product(models.Model):
-    name=models.CharField(max_length=20)
-    income=models.IntegerField(default=0)
-    marital_status=models.TextField(default=' ')
-    employment_status= models.TextField(default=' ')
+    married=models.BooleanField(default=False)
     graduate=models.BooleanField(default=False)
     dependants=models.IntegerField(default=0)
+    self_employed=models.BooleanField(default=False)
+    applicant_income=models.IntegerField(default=0)
+    coapplicant_income=models.IntegerField(default=0)
+    semi_urban=models.BooleanField(default=False)
+    urban=models.BooleanField(default=False)
+    Loan_Amount_Term=models.IntegerField(default=0)
 
 class Signup(models.Model):
     name=models.CharField(max_length=20)

@@ -4,18 +4,26 @@ from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 class ProductForm(forms.Form):
-    name=forms.CharField(max_length=20,widget=forms.TextInput(
-            attrs={'class' : 'form-control', 'placeholder' : 'Enter your name'}))
-    income=forms.IntegerField(widget=forms.NumberInput(
-            attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
-    marital_status=forms.CharField(widget=forms.TextInput(
-            attrs={'class' : 'form-control', 'placeholder' : 'Enter your marital status'}))
-    employment_status= forms.CharField(widget=forms.TextInput(
-            attrs={'class' : 'form-control', 'placeholder' : 'Enter your employment status'}))
-    graduate=forms.BooleanField(widget=forms.CheckboxInput(
+    married=forms.BooleanField(required = False,widget=forms.CheckboxInput(
+            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    graduate=forms.BooleanField(required = False,widget=forms.CheckboxInput(
             attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
     dependants=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter number of dependants' }))
+    self_employed=forms.BooleanField(required = False,widget=forms.CheckboxInput(
+            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    applicant_income=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
+    coapplicant_income=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
+    semi_urban=forms.BooleanField(required = False,widget=forms.CheckboxInput(
+            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    urban=forms.BooleanField(required = False,widget=forms.CheckboxInput(
+            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    Loan_Amount_Term=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
+    
+    
          
 class SignupForm(UserCreationForm):
     username=forms.CharField(max_length=20,widget=forms.TextInput(
