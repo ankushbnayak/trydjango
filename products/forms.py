@@ -1,25 +1,25 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 from django.utils.translation import gettext_lazy as _
 class ProductForm(forms.Form):
-    married=forms.BooleanField(required = False,widget=forms.CheckboxInput(
-            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
-    graduate=forms.BooleanField(required = False,widget=forms.CheckboxInput(
-            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    married=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter marriage status' }))
+    graduate=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Graduate' }))
     dependants=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter number of dependants' }))
-    self_employed=forms.BooleanField(required = False,widget=forms.CheckboxInput(
-            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    self_employed=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Employment' }))
     applicant_income=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
     coapplicant_income=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
-    semi_urban=forms.BooleanField(required = False,widget=forms.CheckboxInput(
-            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
-    urban=forms.BooleanField(required = False,widget=forms.CheckboxInput(
-            attrs={ 'style':'width:25px;height:25px;margin:10px;' }))
+    semi_urban=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'semi_urban' }))
+    urban=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Urban' }))
     Loan_Amount_Term=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
     
