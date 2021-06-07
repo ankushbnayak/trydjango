@@ -35,6 +35,7 @@ def signup_view(request):
         'form':form
     }
     return render(request,'product/signup.html',context)
+    
 def result(request):
     cls = joblib.load('finalmodel.sav')
     lis=[]
