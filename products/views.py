@@ -48,4 +48,5 @@ def result(request):
     lis.append(request.POST.get('urban', 0))
     lis.append(request.POST.get('Loan_Amount_Term', 0))
     ans=cls.predict([lis])
+    ans=str(ans).lstrip('[').rstrip(']')
     return render(request,'product/result.html',{'ans':ans})
