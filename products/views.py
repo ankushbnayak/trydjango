@@ -36,7 +36,7 @@ def signup_view(request):
     }
     return render(request,'product/signup.html',context)
 def result(request):
-    cls = joblib.load('finalmodel.sav')
+    cls = joblib.load('finalmodels.sav')
     lis=[]
     lis.append(request.POST.get('married', 0))
     lis.append(request.POST.get('graduate', 0))
@@ -47,6 +47,7 @@ def result(request):
     lis.append(request.POST.get('semi_urban', 0))
     lis.append(request.POST.get('urban', 0))
     lis.append(request.POST.get('Loan_Amount_Term', 0))
+    lis.append(1.0)
     ans=cls.predict([lis])
     ans=str(ans).lstrip('[').rstrip(']')
     return render(request,'product/result.html',{'ans':ans})
