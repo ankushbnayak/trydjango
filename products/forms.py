@@ -6,12 +6,16 @@ from django.utils.translation import gettext_lazy as _
 class ProductForm(forms.Form):
     married=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter marriage status' }))
+    gender=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter sex' }))
     graduate=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Graduate' }))
     dependants=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter number of dependants' }))
     self_employed=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Employment' }))
+    loan_amount=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter loan amount' }))
     applicant_income=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
     coapplicant_income=forms.IntegerField(widget=forms.NumberInput(
