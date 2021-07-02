@@ -12,6 +12,9 @@ body {
 #wrapper {
 	margin-top: 10% !important;
 }
+#wrapper2 {
+	margin-top: 24% !important;
+}
 #content {
 	background: beige;
 	opacity: 0.8;
