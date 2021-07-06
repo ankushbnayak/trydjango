@@ -3,22 +3,32 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User 
 from django.utils.translation import gettext_lazy as _
+
+Gender_choices=((1,'Male'),(0,'Female'),)
+other_choices=((1,'Yes'),(0,'No'),)
+
+
+
 class ProductForm(forms.Form):
-    married=forms.IntegerField(widget=forms.NumberInput(
+    married=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter marriage status' }))
-    graduate=forms.IntegerField(widget=forms.NumberInput(
+    gender=forms.ChoiceField(choices=Gender_choices, widget=forms.Select(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter sex' }))
+    graduate=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'Graduate' }))
     dependants=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter number of dependants' }))
-    self_employed=forms.IntegerField(widget=forms.NumberInput(
+    self_employed=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'Employment' }))
+    loan_amount=forms.IntegerField(widget=forms.NumberInput(
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter loan amount' }))
     applicant_income=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
     coapplicant_income=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
-    semi_urban=forms.IntegerField(widget=forms.NumberInput(
+    semi_urban=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'semi_urban' }))
-    urban=forms.IntegerField(widget=forms.NumberInput(
+    urban=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'Urban' }))
     Loan_Amount_Term=forms.IntegerField(widget=forms.NumberInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
