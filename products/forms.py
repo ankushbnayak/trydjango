@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+
 from django.utils.translation import gettext_lazy as _
 
 Gender_choices=((1,'Male'),(0,'Female'),)

@@ -9,6 +9,7 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 # Create your views here.
+
 def product_create_view(request):
     print("A")
     form =ProductForm(request.GET)
