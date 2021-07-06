@@ -34,21 +34,20 @@
 									     {% include 'product/navbar_loggedin.html' %}
 
 										{% for field in form %}
-											<div class="col-sm-12">
-												<li> {{ field.label_tag }} {{ field }} </li> 
+											<div class="col-sm-6">
+												<ul class="list-group" style="list-style-type: none;">
+												<li style="padding: 5px;"> {{ field.label_tag }} {{ field }} </li> 
+												</ul>
 											</div>
 										{% endfor %}
-										<div class="row t10" >
+										   <centre>
 											<div class="col-lg-12">
-												<div class="btn-toolbar">
-													<div class="btn-group">
-														<centre><button type="submit" class="btn btn-warning" style="margin-top: 10px;">
+										
+														<button type="submit" class="btn btn-warning" style="margin-top: 20px;width: 200px; margin-left: 25%;">
 															<i class="glyphicon glyphicon-edit"></i> SUBMIT
-														</button></centre>
-													</div>
-												</div>
-											</div>
-										</div>
+														</button>
+										
+										   </div></centre>
 										{{data}}
 									{% else %}
 									{% include 'product/navbar.html' %}

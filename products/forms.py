@@ -1,9 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.forms.fields import ChoiceField 
 from django.utils.translation import gettext_lazy as _
 class ProductForm(forms.Form):
+    lis1=[('Yes','Yes'),('No','No')]
     married=forms.CharField(widget=forms.TextInput(
             attrs={'class' : 'form-control', 'placeholder' : 'Enter marriage status' }))
     gender=forms.CharField(widget=forms.TextInput(
