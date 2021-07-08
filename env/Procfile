@@ -1,0 +1,1 @@
+web:gunicron trjango.wsgi --log-file -
