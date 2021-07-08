@@ -1,1 +1,1 @@
-web: gunicron trjango.wsgi --log-file -
+web: gunicorn trjango.wsgi --log-file -
