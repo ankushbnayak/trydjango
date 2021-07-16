@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import User
-
 from django.utils.translation import gettext_lazy as _
 
 Gender_choices=((1,'Male'),(0,'Female'),)
@@ -32,7 +31,7 @@ class ProductForm(forms.Form):
     urban=forms.ChoiceField(choices=other_choices,widget=forms.Select(
             attrs={'class' : 'form-control', 'placeholder' : 'Urban' }))
     Loan_Amount_Term=forms.IntegerField(widget=forms.NumberInput(
-            attrs={'class' : 'form-control', 'placeholder' : 'Enter your income' }))
+            attrs={'class' : 'form-control', 'placeholder' : 'Enter the loan term in years' }))
     
     
          

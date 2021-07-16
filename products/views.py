@@ -13,11 +13,7 @@ import numpy as np
 def product_create_view(request):
     print("A")
     form =ProductForm(request.GET)
-    if request.method=='POST':
-        form=ProductForm(request.POST)
-        if form.is_valid():
-            print("A")
-            Product.objects.create(**form.cleaned_data)
+    
     #out=run([sys.executable,'products/tests.py'],shell=False,stdout=PIPE)
     context={
         'form':form,
@@ -41,6 +37,10 @@ def signup_view(request):
     return render(request,'product/signup.html',context)
     
 def result(request):
+    form=ProductForm(request.POST)
+    if form.is_valid():
+            print("A")
+            Product.objects.create(**form.cleaned_data)
     knn=joblib.load('knn.sav')
 
     cls = joblib.load('finalmodels.sav')
@@ -49,7 +49,7 @@ def result(request):
     lis.append(request.POST.get('applicant_income', 0))
     lis.append(request.POST.get('coapplicant_income', 0))
     lis.append(request.POST.get('loan_amount', 0))
-    lis.append(request.POST.get('Loan_Amount_Term', 0))
+    lis.append(str(int(request.POST.get('Loan_Amount_Term', 0))*365))
     lis.append(1.0)
     lis.append(request.POST.get('gender', 0))
         
@@ -81,7 +81,7 @@ def result(request):
     lis.append(request.POST.get('coapplicant_income', 0))
     lis.append(request.POST.get('semi_urban', 0))
     lis.append(request.POST.get('urban', 0))
-    lis.append(request.POST.get('Loan_Amount_Term', 0))
+    lis.append(str(int(request.POST.get('Loan_Amount_Term', 0))*365))
     lis.append(1.0)
     print(lis)
     ans=cls.predict([lis])
@@ -90,7 +90,11 @@ def result(request):
     print(knn_ans)
     if(knn_ans=='1'):
        ans=str(ans).lstrip('[').rstrip(']')
+       res=1
+       ans=float(ans)
+
     else:
        ans="Sorry! You are not eligible for the loan"
+       res=0
     print(ans)
-    return render(request,'product/result.html',{'ans':ans})
+    return render(request,'product/result.html',{'ans':round(ans),'result':res})
